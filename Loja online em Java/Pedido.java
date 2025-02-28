@@ -1,4 +1,4 @@
-package lojaonline;
+package br.com.henriquebg.lojaonline;
 
 import java.util.ArrayList;
 
@@ -34,20 +34,20 @@ public class Pedido
 	{
 		double frete = 0.0;
 		
-		for (Produto produto : produtos)
+		/*for (Produto produto : produtos)
 		{
 			frete += produto.getPeso();
-		}
-			
+		}*/
+		
 		return frete * 5.0;
 	}
 	
 	public void finalizar()
 	{
-		System.out.println("=====RESUMO DO PEDIDO=====");
+		System.out.println("============RESUMO DO PEDIDO============");
 		System.out.println(cliente);
+		System.out.println("=============ITENS DO PEDIDO============");
 		
-		System.out.println("=====ITENS DO PEDIDO=====");
 		for (Produto produto : produtos)
 		{
 			System.out.println(produto);
@@ -56,11 +56,9 @@ public class Pedido
 		double subtotal = calcularSubtotal();
 		double frete = calcularFrete();
 		
-		System.out.println("=====TOTAL=====");
+		System.out.println("=============TOTAL DO PEDIDO============");
 		System.out.println("SUBTOTAL: " + subtotal);
 		System.out.println("FRETE: " + frete);
 		System.out.println("TOTAL: " + (subtotal + frete));
 	}
 }
-
-      
