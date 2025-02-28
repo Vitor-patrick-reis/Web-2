@@ -1,48 +1,37 @@
 package br.com.vitorpatrick.lojaonline;
 
-import java.util.ArrayList;
+public class Cliente {
+    private String nome;
+    private String email;
+    private String cpf;
 
-public class Pedido {
-    private Cliente cliente;
-    private ArrayList<Produto> produtos;
-
-    public Pedido(Cliente cliente) {
-        this.cliente = cliente;
-        produtos = new ArrayList<Produto>();
+    public Cliente(String nome, String email, String cpf) {
+        this.nome = nome;
+        this.email = email;
+        this.cpf = cpf;
     }
 
-    public void adicionarProduto(Produto produto) {
-        produtos.add(produto);
+    public String getNome() {
+        return nome;
     }
 
-    private double calcularSubtotal() {
-        double subtotal = 0.0;
-
-        for (Produto produto : produtos) {
-            subtotal += produto.getPreco();
-        }
-        return subtotal;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public void finalizar() {
-        System.out.println("===============RESUMO DO PEDIDO===============");
-        System.out.println(cliente);
-        System.out.println("===============ITENS DO PEDIDO===============");
-
-        for (Produto produto : produtos) {
-            System.out.println(produto);
-        }
-
-        double subtotal = calcularSubtotal();
-        double frete = calcularFrete(); // Essa função não está visível, pode ser implementada
-
-        System.out.println("Subtotal: " + subtotal);
-        System.out.println("Frete: " + frete);
-        System.out.println("Total: " + (subtotal + frete));
+    public String getEmail() {
+        return email;
     }
 
-    private double calcularFrete() {
-        // Implementação fictícia do frete, pode ser modificada conforme necessário
-        return produtos.size() * 5.0;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 }
