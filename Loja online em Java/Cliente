@@ -1,11 +1,13 @@
 package br.com.vitorpatrick.lojaonline;
 
-public class Cliente {
+public class Cliente 
+{
     private String nome;
     private String email;
     private String cpf;
 
-    public Cliente(String nome, String email, String cpf) {
+    public Cliente(String nome, String email, String cpf)
+{
         this.nome = nome;
         this.email = email;
         this.cpf = cpf;
