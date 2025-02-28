@@ -30,7 +30,8 @@ public class Pedido {
         System.out.println(cliente);
         System.out.println("===============ITENS DO PEDIDO===============");
 
-        for (Produto produto : produtos) {
+        for (Produto produto : produtos)
+        {
             System.out.println(produto);
         }
 
@@ -43,10 +44,12 @@ public class Pedido {
         System.out.println("TOTAL: " + (subtotal + frete));
     }
 
-    private double calcularFrete() {
+    private double calcularFrete() 
+    {
         double frete = 0.0;
 
-        for (Produto produto : produtos) {
+        for (Produto produto : produtos)
+        {
             frete += produto.getPeso();
         }
         return frete * 5.0;
