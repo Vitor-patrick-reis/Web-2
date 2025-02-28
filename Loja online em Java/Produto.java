@@ -1,16 +1,14 @@
-package lojaonline;
+package br.com.henriquebg.lojaonline;
 
-public class Produto
+public class Produto 
 {
 	private String nome;
 	private double preco;
-	private double peso;
 	
-	public Produto(String nome, double preco, double peso)
+	public Produto(String nome, double preco)
 	{
 		this.nome = nome;
 		this.preco = preco;
-		this.peso = peso;
 	}
 	
 	public String getNome()
@@ -18,21 +16,14 @@ public class Produto
 		return nome;
 	}
 	
-	
 	public double getPreco()
 	{
 		return preco;
 	}
 	
-	
-	public double getPeso()
-	{
-		return peso;
-	}
-	
 	@Override
 	public String toString()
 	{
-		return "Nome: " + nome + " Preço: " + preco + " Peso: " + peso;
+		return "Nome: " + nome + " / Preço: " + preco;
 	}
 }
