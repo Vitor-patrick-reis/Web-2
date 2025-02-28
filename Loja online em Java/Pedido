@@ -35,4 +35,22 @@ public class Pedido {
         }
 
         double subtotal = calcularSubtotal();
+        double frete = calcularFrete();
+
+        System.out.println("===============TOTAL DO PEDIDO===============");
+        System.out.println("SUBTOTAL: " + subtotal);
+        System.out.println("FRETE: " + frete);
+        System.out.println("TOTAL: " + (subtotal + frete));
+    }
+
+    private double calcularFrete() {
+        double frete = 0.0;
+
+        for (Produto produto : produtos) {
+            frete += produto.getPeso();
+        }
+        return frete * 5.0;
+    }
+}
+
       
