@@ -1,6 +1,7 @@
-package lojaonline;
 
-public class Cliente
+	package br.com.henriquebg.lojaonline;
+
+public class Cliente 
 {
 	private String nome;
 	private String email;
@@ -28,7 +29,7 @@ public class Cliente
 		return email;
 	}
 	
-	public void setEmail(String email)
+	public void setEmail(String email) 
 	{
 		this.email = email;
 	}
@@ -46,6 +47,7 @@ public class Cliente
 	@Override
 	public String toString()
 	{
-		return "Nome: " + nome + " Email: " + email + " CPF: " + cpf;
+		return "Cliente: " + nome + " / Email: " + email;
 	}
 }
+
