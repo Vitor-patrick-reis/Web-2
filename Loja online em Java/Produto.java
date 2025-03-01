@@ -1,9 +1,9 @@
 package br.com.henriquebg.lojaonline;
 
-public class Produto 
+public abstract class Produto 
 {
-	private String nome;
-	private double preco;
+	protected String nome;
+	protected double preco;
 	
 	public Produto(String nome, double preco)
 	{
@@ -24,6 +24,6 @@ public class Produto
 	@Override
 	public String toString()
 	{
-		return "Nome: " + nome + " / Preço: " + preco;
+		return "Produto: " + nome + " / Preço: " + preco;
 	}
 }
