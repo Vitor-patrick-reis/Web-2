@@ -1,8 +1,8 @@
 package br.com.henriquebg.lojaonline;
 
-public class ProdutoFisico extends Produto
+public abstract class ProdutoFisico extends Produto
 {
-	private double peso;
+	protected double peso;
 	
 	public ProdutoFisico(String nome, double preco, double peso) 
 	{
