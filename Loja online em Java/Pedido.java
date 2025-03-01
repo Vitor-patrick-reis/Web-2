@@ -6,6 +6,7 @@ public class Pedido
 {
 	private Cliente cliente;
 	private ArrayList<Produto> produtos;
+	private Cupom cupomDesconto;
 	
 	public Pedido(Cliente cliente)
 	{
@@ -32,21 +33,29 @@ public class Pedido
 	
 	private double calcularFrete()
 	{
-		double frete = 0.0;
+		double somaPesos = 0.0;
 		
-		/*for (Produto produto : produtos)
+		for (Produto produto : produtos)
 		{
-			frete += produto.getPeso();
-		}*/
+			if (produto instanceof ProdutoFisico)
+			{
+				somaPesos += ((ProdutoFisico) produto).getPeso();
+			}
+		}
 		
-		return frete * 5.0;
+		return somaPesos * 5.0;
+	}
+	
+	public void aplicarDesconto(Cupom cupomDesconto)
+	{
+		this.cupomDesconto = cupomDesconto;
 	}
 	
 	public void finalizar()
 	{
-		System.out.println("============RESUMO DO PEDIDO============");
+		System.out.println("=============RESUMO DO PEDIDO=============");
 		System.out.println(cliente);
-		System.out.println("=============ITENS DO PEDIDO============");
+		System.out.println("=============ITENS DO PEDIDO==============");
 		
 		for (Produto produto : produtos)
 		{
@@ -54,11 +63,31 @@ public class Pedido
 		}
 		
 		double subtotal = calcularSubtotal();
-		double frete = calcularFrete();
 		
-		System.out.println("=============TOTAL DO PEDIDO============");
+		double desconto = 0.0;
+		
+		if (cupomDesconto != null)
+		{
+			desconto = subtotal * cupomDesconto.getDesconto();
+		}
+		
+		double frete = calcularFrete();
+		double valorTotal = subtotal - desconto + frete;
+		
+		System.out.println("=============TOTAL DO PEDIDO==============");
 		System.out.println("SUBTOTAL: " + subtotal);
+		System.out.println("DESCONTO: " + desconto);
 		System.out.println("FRETE: " + frete);
-		System.out.println("TOTAL: " + (subtotal + frete));
+		System.out.println("TOTAL: " + valorTotal);
+		System.out.println("========ENVIO DE PRODUTOS DIGITAIS========");
+		
+		for (Produto produto : produtos)
+		{
+			if (produto instanceof Enviavel)
+			{
+				((Enviavel)produto).enviarPorEmail(cliente.getEmail());
+			}
+		}
 	}
 }
+ 
